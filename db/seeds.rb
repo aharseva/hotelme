@@ -5,18 +5,42 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
+Hotel.destroy_all
+User.destroy_all
 
+user = User.new(email: "admin@admin.com", password: "123456")
 
 puts "Creating 10 Hotels"
 10.times do |i|
-  hotel = Hotel.create!(
+  Hotel.create!(
     name: Faker::Company.name,
-    address: Faker::Address.address
-    price: rand(50...300)
-    rating: rand(1..5)
-    occupancy: rand(1..8)
-    description: Faker::Quote.famous_last_words
+    address: Faker::Address.city,
+    price: rand(50...300),
+    rating: rand(1..5),
+    occupancy: rand(1..8),
+    description: Faker::Quote.famous_last_words,
+    user: user
   )
-  hotel.save!
 end
 puts "Finished!"
+
+# Hotel.create!(
+#   name: 'Small flat you will love',
+#   address: '5 Coal Lane, London',
+#   price: rand(50...300),
+#   rating: rand(1..5),
+#   occupancy: rand(1..8),
+#   description: "Faker::Quote.famous_last_words",
+#   user: user
+# )
+
+# Hotel.create!(
+#   name: 'Another flat jddkd',
+#   address: '5 Coal Lane, London',
+#   price: rand(50...300),
+#   rating: rand(1..5),
+#   occupancy: rand(1..8),
+#   description: "Flat flat flat flat ",
+#   user: user
+# )
