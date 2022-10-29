@@ -1,0 +1,9 @@
+<h1>Add new hotel</h1>
+<%= simple_form_for(@hotel) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :occupancy%>
+  <%= f.submit %>
+<% end %>
