@@ -37,3 +37,41 @@
   top: -20px;
   width: 40px;
 }
+
+// CSS for Cards of hotels on index page
+
+.hotel-cards {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  margin: 2px 0;
+  width: 500px;
+}
+
+.hotel-image img {
+  height: 100%;
+  width: 150px;
+  object-fit: cover;
+}
+
+.hotel-attributes h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.hotel-attributes p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.hotel-cards .hotel-attributes{
+  padding: 16px;
+}

@@ -1,24 +1,49 @@
 <h1> HOTELS INDEX PAGE </h1>
 <div class="container">
   <div class="row">
+    <div class="col-md-4">
+      <div class="search-per-city">
+        <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
+          <div class="search-per-city form-group">
+            <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn btn-flat">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="occupancy-selector">
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <p>filter will be here</p>
+  <div>
+
+  <div class="row">
+    <div class="col-md-7">
       <% @hotels.each do |hotel| %>
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem; heidht: 10rem;">
-            <img src="https://images.unsplash.com/photo-1615571022219-eb45cf7faa9d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><%= hotel.name %></h5>
-              <p class="card-text"><%= hotel.address%></p>
-            <div class="flex">
-              <div class="flex align-items-center">
-              <i class="fa-solid fa-people-line"><%= hotel.occupancy %></i>
-              <i class="fa-solid fa-euro-sign"><%= hotel.price %></i>
+        <div class="row">
+          <div class="card-hotel col-12">
+            <div class="d-flex align-items-center">
+            <div class="row hotel-cards">
+                <div class="hotel-image col-4">
+                  <img src="https://images.unsplash.com/photo-1615571022219-eb45cf7faa9d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="...">
+                </div>
+                <div class="hotel-attributes col-8">
+                  <h5 class="card-title"><%= hotel.name %></h5>
+                  <p class="card-text"><%= hotel.address%></p>
+                  <p class="card-text"><%= hotel.rating%></p>
+                </div>
               </div>
-            </div>
-              <%= link_to "Learn more", hotel_path(hotel), class: "btn btn-primary" %>
             </div>
           </div>
         </div>
-      <% end %>
+       <% end %>
+    </div>
+    <div class="col-md-5">
+      <div class="mapouter"><div class="gmap_canvas"><iframe width="583" height="822" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a><br><style>.mapouter{position:relative;text-align:right;height:822px;width:583px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:822px;width:583px;}</style></div></div>
+    <div>
   </div>
 </div>
