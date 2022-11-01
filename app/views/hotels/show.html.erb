@@ -1,11 +1,71 @@
-<div class="card-trip">
+<%# <div class="card-trip">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card-trip-infos">
     <div>
-      <h2><%= @hotel.name %></h2>
-      <p><%= @hotel.description %></p>
+      <h2><%= @hotel.name %>
+      <%# <p><%= @hotel.description %>
+    <%# </div> %>
+    <%# <h2 class="card-trip-pricing"><%= @hotel.price %>
+    <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div> %> 
+
+<div class="container px-4">
+  <i class="fa-solid fa-arrow-left">
+  <h5> <%= link_to "Home-page", hotels_path %> </h5>
+  </i>
+
+  <h1> <strong> <%= @hotel.name %> </strong> </h1>
+
+ <div class="row">
+   <div class="col-12"> 
+   <div class="card bg-light">
+      <img scr="/app/assets/images/show-img/hotel1.png">
+      <img scr="../../assets/images/show-img/hotel1.png">
+      <img scr="/app/assets/images/show-img/hotel2.png" width="500" height="300">
+      <img scr="/app/assets/images/show-img/hotel3.png">
+      
+   </div>
+   </div>
+    
+
+    <div class="col-12 col-lg-8">
+      <div class="card by-light">
+      
+        <img src="/app/assets/images/show-img/hotel-logo.png" class="avatar">
+        </div>
+        <button type="button" class="btn btn-primary"> Book now! </button>
+      </div>
     </div>
-    <h2 class="card-trip-pricing"><%= @hotel.price %></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div> 
+
+
+<div class="container-information"  >
+ <h2><strong> £ <%= @hotel.price %> </strong></h2>
+  
+  <div class="flex-container">
+      <i class="fa-solid fa-people-group"></i> <%= @hotel.occupancy %> 
+      <i class="fa-solid fa-location-dot"> </i> <%= @hotel.address %>
+      <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi 
+      <i class="fa-solid fa-hot-tub-person"></i> Hot tube 
+      <i class="fa-regular fa-calendar-days"></i> Free cancellation
   </div>
 </div>
+<hr> 
+
+<div class="container-description">
+  <div class="text-center">
+    <p> <%= @hotel.description %> </p>
+  </div>
+</div>
+
+<hr>
+
+<div class="text-center">
+<i class="fa-solid fa-star"></i> Rating: <%= @hotel.rating %>
+</div>
+
+
+
+
