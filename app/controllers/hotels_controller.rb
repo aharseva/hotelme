@@ -14,12 +14,18 @@ class HotelsController < ApplicationController
 
   def create
     @hotel = Hotel.new(hotel_params)
-    @hotel.save
+    @hotel.user = current_user
+    @hotel.save!
+    if @hotel.save
+      redirect_to hotel_path(@hotel)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
-  def flat_params
-    params.require(:hotel).permit(:name, :address, :description, :price, :occupancy)
+  def hotel_params
+    params.require(:hotel).permit(:name, :address, :description, :price, :occupancy, :rating, photos: [])
   end
 end
