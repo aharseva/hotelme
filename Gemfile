@@ -38,6 +38,7 @@ gem "jbuilder"
 gem "faker"
 
 #cloudinary
+gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

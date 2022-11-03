@@ -1,49 +1,32 @@
 //show_page css style
 
-.row > div {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    border: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.1); 
-    justify-content: space-evenly;
-    background-color: whitesmoke;
-    border-radius: 4px;
-    margin: 20px 0px;
-    text-align: center;
-    justify-content: space-between;
-}
 
-.container {
-    justify-content: space-between; 
-  
-}
-
-.container-information {
-    font-size: small;
-    display: inline;
-}
-
-.flex-container {
-    justify-content: space-between;
-    align-items: stretch;
-    margin-top: 15px;
+.column-icon {
+    display: contents;
+    margin-top: 40px;
     margin-bottom: 30px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1); 
+    font-size: 17px;
+    
 }
 
-// .p {
-//     font-size: xx-large;
-// }
+.container-img {
+    margin-left: 20px;
+    margin-right: 20px; 
+    margin-top: 40px;
+    margin-bottom: 40px;    
 
-// .h5 {
-//     text-decoration: none;
-// }
+}                 
+
 
 .container-description {
-    font-size: 30px;
+    font-size: 50px;
 }
 
-.cards {
-    display: block;
+
+.container-i {
+    display: flex;
+    justify-content: space-around;  
+   
 }
