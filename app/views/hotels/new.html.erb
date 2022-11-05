@@ -1,9 +1,19 @@
-<h1>Add new hotel</h1>
-<%= simple_form_for(@hotel) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :occupancy%>
-  <%= f.submit %>
-<% end %>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new hotel</h3>
+          <%= simple_form_for(@hotel) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :address %>
+            <%= f.input :description %>
+            <%= f.input :price %>
+            <%= f.input :occupancy%>
+            <%= f.input :rating%>
+            <%= f.input :photos, as: :file, input_html: {multiple:true} %>
+            <%= f.submit %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

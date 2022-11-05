@@ -9,6 +9,9 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
+     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+
   </head>
 
   <body>
@@ -16,9 +19,9 @@
 
   <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <% if user_signed_in? %>
+     <% if user_signed_in? %>
       <h2> Hello <%= current_user.email %> </h2>
     <% end %>
+    <%= yield %>
   </body>
 </html>

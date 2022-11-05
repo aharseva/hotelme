@@ -1,0 +1,10 @@
+<div class="container md-4">
+
+<h3> Reserve </h3>
+ <%= simple_form_for [@hotels] do |f| %>
+          <%= f.input :comment %>
+          <%= f.input :comment %>
+          <%= f.association :occupancy,  placeholder: '1 Guest', input_html: {data: { controller: "tom-select"}} %>
+          <%= f.submit class: "btn btn-flat" %>
+        <% end %>
+</div>
