@@ -26,10 +26,14 @@
                 </div>
                 <div class="hotel-attributes col-4">
                   <h5 class="card-title"><%= hotel.name %></h5>
-                 <% hotel.rating.times do %>
-                  <i class="fa fa-star rating-color"></i>
-                 <% end %>
-                  <span class="hotel-rating-text"> Hotel </span>
+                    <% if hotel.rating %>
+                      <% hotel.rating.times do %>
+                        <i class="fa fa-star rating-color"></i>
+                      <% end %>
+                      <span class="hotel-rating-text"> Hotel </span>
+                    <% else  %>
+                      <span class="hotel-rating-text"> No Rating </span>
+                    <% end %>
                   <p class="card-text"><%= hotel.address%></p>
                   <p class="card-text"><%= hotel.rating%></p>
                 </div>
