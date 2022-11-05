@@ -55,53 +55,23 @@
     <div class="icons">
         <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi 
         <i class="fa-solid fa-hot-tub-person"></i> Hot tube 
-
- <h2><strong> £ <%= @hotel.price %> </strong> night </h2>
- <div class="container-i">
-   <div class="column-icon">
-      <div class="text-align-left" style="margin: 3%">
-        <i class="fa-solid fa-people-group"></i> <%= @hotel.occupancy %>
-        <i class="fa-solid fa-location-dot"> </i> <%= @hotel.address %>
-        <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi
-        <i class="fa-solid fa-hot-tub-person"></i> Hot tube
         <i class="fa-regular fa-calendar-days"></i> Free cancellation
         <i class="fa-solid fa-utensils"></i> Restaurant
         <i class="fa-solid fa-car"></i> Free-parking
         <i class="fa-solid fa-umbrella-beach"></i> Few meter from the beach
-    </div>
-   </div>  
-   <hr style="margin-top: -10%">
-   <div calss="column-img">
-     <h4> Hosted by: </h4>
-     <div class="rounded-circle">
-       <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342992/hotelme/hotel-logo_ptkmpe.png") %> 
-     </div>    
-   </div>
+     </div>
   </div>
-  <h3> About <%= @hotel.name %> </h3>
-  <hr> 
- <div class="text-center">
+
+  </div>
+   <h3> About <%= @hotel.name %> </h3>
+    <div class="text-center">
     <p> <%= @hotel.description %> </p>
     <hr> 
-
-
-   <div calss="column-img">
-     <h4> Hosted by: </h4>
-     <div class="avatar">
-       <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342992/hotelme/hotel-logo_ptkmpe.png") %>
-     </div>
-   </div>
   </div>
 
-  <div class="text-center">
-   <button type="button" class="btn btn-primary"> Book now! </button>
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoiYWhzaG9wOTAiLCJhIjoiY2w4ZGNlNXVkMHF0bjN1cGg4MHUzMDZycyJ9.CtL1ncTIa0PkMfjgFBKjMg'] %>"></div>
 
-    <hr>
-    <p> <%= @hotel.description %> </p>
-    <hr>
-
-    <h4> Rating :
-      <%= @hotel.rating %>/5 <i class="fa-solid fa-star"></i>
-    </h4>
-  </div>
 </div>

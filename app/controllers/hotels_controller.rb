@@ -7,6 +7,13 @@ class HotelsController < ApplicationController
   def show
     @hotel = Hotel.find(params[:id])
     @booking = Booking.new(hotel: @hotel)
+    @marker = @hotel.geocoded 
+      {
+        lat: hotel.latitude,
+        lng: hotel.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {flat: flat})
+      }
+    end 
   end
 
   def new
