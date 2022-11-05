@@ -12,10 +12,10 @@ User.destroy_all
 user = User.new(email: "admin@admin.com", password: "123456")
 
 puts "Creating 10 Hotels"
-10.times do |i|
+2.times do |i|
   Hotel.create!(
     name: Faker::Company.name,
-    address: Faker::Address.city,
+    address: Faker::Address.full_address,
     price: rand(50...300),
     rating: rand(1..5),
     occupancy: rand(1..8),
