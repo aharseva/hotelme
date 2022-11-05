@@ -1,12 +1,16 @@
 
-<div class="container py-4" style="text-decoration: none">
+<div class="container py-4" >
   <i class="fa-solid fa-arrow-left">
-  <h5> <%= link_to "Home-page", hotels_path %> </h5>
+    <h5> <%= link_to "Home-page", hotels_path %> </h5>
   </i>
   <h1> <strong> <%= @hotel.name %> </strong> </h1>
+  <h4> Rating :
+     <%= @hotel.rating %>/5 <i class="fa-solid fa-star"></i>
+  </h4>
   <div class="container-img">
     <div class="row justify-content-center">
       <div class="d-flex justify-content-center">
+        <div class="card-photo">
           <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667338590/hotelme/image-hotel_lovjwx.jpg",
           width: 400, height: 300, crop: :fill) %>      
           <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342232/hotelme/istockphoto-178443682-612x612_kdix9m.jpg",
@@ -20,35 +24,60 @@
   </div> 
 
  <h2><strong> £ <%= @hotel.price %> </strong> night </h2>  
- <div class="container-i"> 
-   <div class="column-icon">
-      <div class="text-align-left" style="margin: 3%">
-        <i class="fa-solid fa-people-group"></i> <%= @hotel.occupancy %> 
-        <i class="fa-solid fa-location-dot"> </i> <%= @hotel.address %>
+ <div class="container-i" style="display: -webkit-inline-box"> 
+   <div class="cards-icon">
+     <div class="card-icon md-5">
+        <h6> Beds for </h6>
+          <%= @hotel.occupancy %> 
+          <%# <% @hotel.occupancy.times do %>  
+            <i class="fa-solid fa-person"></i>
+          <%# <% end  %>  
+      </div>
+      <div class="card-icon">
+       <h5>Location</h5>
+       <i class="fa-solid fa-location-dot"> </i> <%= @hotel.address %>
+     </div>
+   </div>
+        
+   <div class="form col-4">
+      <div class="row">
+        <h3> Reserve </h3>
+        <%= simple_form_for [@hotel, @booking] do |f| %>
+          <%= f.input :start_date, as: :date %>
+          <%= f.input :end_date, as: :date %>
+          <%= f.input :status %>
+          <%= f.submit class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+ </div>
+     
+
+  <div class="container" style="margin-top: -20%">
+    <hr style="width: 60%">  
+    <h3> What this place offer </h3>
+    <div class="icons">
         <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi 
         <i class="fa-solid fa-hot-tub-person"></i> Hot tube 
         <i class="fa-regular fa-calendar-days"></i> Free cancellation
-      </div>
+        <i class="fa-solid fa-utensils"></i> Restaurant
+        <i class="fa-solid fa-car"></i> Free-parking
+        <i class="fa-solid fa-umbrella-beach"></i> Few meter from the beach
     </div>
-    
+   </div>  
+   <hr style="margin-top: -10%">
    <div calss="column-img">
      <h4> Hosted by: </h4>
-     <div class="avatar">
+     <div class="rounded-circle">
        <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342992/hotelme/hotel-logo_ptkmpe.png") %> 
      </div>    
    </div>
   </div>
-
-  <div class="text-center">
-   <button type="button" class="btn btn-primary"> Book now! </button>
-
-    <hr> 
+  <h3> About <%= @hotel.name %> </h3>
+  <hr> 
+ <div class="text-center">
     <p> <%= @hotel.description %> </p>
-    <hr>
-    
-    <h4> Rating :
-      <%= @hotel.rating %>/5 <i class="fa-solid fa-star"></i>
-    </h4>
+    <hr> 
   </div>
 </div> 
 

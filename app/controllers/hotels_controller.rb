@@ -6,6 +6,7 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find(params[:id])
+    @booking = Booking.new(hotel: @hotel)
   end
 
   def new
@@ -17,6 +18,22 @@ class HotelsController < ApplicationController
     @hotel.save
   end
 
+  def edit
+    @hotel = Hotel.find(params[:id])
+  end
+  
+  def update
+    @hotel = Hotel.find(params[:id])
+    @hotel.update(hotel_params)
+    redirect_to hotel_path(@hotel)
+  end
+  
+  def destroy
+    @hotel = Hotel.find(params[:id])
+    @hotel.destroy
+    redirect_to hotels_path, status: :see_other
+  end
+  
   private
 
   def flat_params
