@@ -7,50 +7,42 @@
   <div class="container-img">
     <div class="row justify-content-center">
       <div class="d-flex justify-content-center">
-          <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667338590/hotelme/image-hotel_lovjwx.jpg",
-          width: 400, height: 300, crop: :fill) %>      
-          <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342232/hotelme/istockphoto-178443682-612x612_kdix9m.jpg",
-          width: 400, height: 300, crop: :fill) %>
-          <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342749/hotelme/istockphoto-1365312403-612x612_yyo4ir.jpg",
-          width: 400, height: 300, crop: :fill) %>
-          <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342754/hotelme/istockphoto-479766948-612x612_upf1az.jpg",
-          width: 400, height: 300, crop: :fill) %>
+        <% @hotel.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
+        <% end %>
       </div>
     </div>
-  </div> 
+  </div>
 
- <h2><strong> £ <%= @hotel.price %> </strong> night </h2>  
- <div class="container-i"> 
+ <h2><strong> £ <%= @hotel.price %> </strong> night </h2>
+ <div class="container-i">
    <div class="column-icon">
       <div class="text-align-left" style="margin: 3%">
-        <i class="fa-solid fa-people-group"></i> <%= @hotel.occupancy %> 
+        <i class="fa-solid fa-people-group"></i> <%= @hotel.occupancy %>
         <i class="fa-solid fa-location-dot"> </i> <%= @hotel.address %>
-        <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi 
-        <i class="fa-solid fa-hot-tub-person"></i> Hot tube 
+        <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi
+        <i class="fa-solid fa-hot-tub-person"></i> Hot tube
         <i class="fa-regular fa-calendar-days"></i> Free cancellation
       </div>
     </div>
-    
+
    <div calss="column-img">
      <h4> Hosted by: </h4>
      <div class="avatar">
-       <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342992/hotelme/hotel-logo_ptkmpe.png") %> 
-     </div>    
+       <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342992/hotelme/hotel-logo_ptkmpe.png") %>
+     </div>
    </div>
   </div>
 
   <div class="text-center">
    <button type="button" class="btn btn-primary"> Book now! </button>
 
-    <hr> 
+    <hr>
     <p> <%= @hotel.description %> </p>
     <hr>
-    
+
     <h4> Rating :
       <%= @hotel.rating %>/5 <i class="fa-solid fa-star"></i>
     </h4>
   </div>
-</div> 
-
-
-
+</div>
