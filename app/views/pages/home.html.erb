@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class= "outer_box">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://github.com/dhruvmullick/hotel-reservation-system/blob/master/image/image2.jpg?raw=true);">
+<div class="container">
+     <h1><strong>Hotelme</strong></h1>
+     <p>Make your vacation comfortable</p>
+      <%# <a class="btn btn-flat" href="#">Search a Hotel</a> %>
+    </div>
+      <div class="main_button">
+      <%= link_to "Search a hotel", hotels_path, class: "btn btn-ghost" %>
+    </div>
+</div>
+
+
+<br></br>
+
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
+    Breakfast
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.google.com/search?q=spa+images&rlz=1C1GCEA_enGB929GB929&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi7-5-Oho77AhXoYPEDHWJfAzMQ_AUoAXoECAQQAw#imgrc=D8ljK0QJ0nv7kM)">
+    Spa
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Dinner
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    copyright
+  </div>
+</div>

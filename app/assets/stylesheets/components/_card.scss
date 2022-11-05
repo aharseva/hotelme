@@ -47,7 +47,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 4px 0;
   width: 900px;
 }
@@ -87,4 +87,8 @@
 .hotel-rating-text {
   font-size: 12px;
   font-weight: lighter;
+}
+
+.index-page {
+  padding: 20px 50px;
 }
