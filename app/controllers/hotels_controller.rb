@@ -1,7 +1,11 @@
 class HotelsController < ApplicationController
 
   def index
-    @hotels = Hotel.all
+    if params[:query].present?
+      @hotels = Hotel.search_index(params[:query])
+    else
+      @hotels = Hotel.all
+    end
     @markers = @hotels.geocoded.map do |hotel|
       {
         lat: hotel.latitude,
