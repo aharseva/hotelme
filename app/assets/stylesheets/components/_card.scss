@@ -123,7 +123,26 @@
   flex-direction: column;
   height: 100%;
   padding: 16px;
+  text-align:right;
 }
+
+.hotel-booking-price p {
+  margin: 0;
+  font-size:12px;
+}
+
+.hotel-booking-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+}
+
+.hotel-price {
+  color: #008009;
+  font-weight: bold;
+}
+
 
 .mapboxgl-map {
   position: sticky !important;
