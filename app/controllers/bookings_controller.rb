@@ -9,8 +9,9 @@ class BookingsController < ApplicationController
         @booking = Booking.new(booking_params)
         @booking.hotel = Hotel.find(params[:hotel_id])
         @booking.user = current_user
+        @booking.save!
         if @booking.save
-          redirect_to hotel_bookings_url
+          redirect_to hotel_bookings_path(@booking.hotel)
         else
           render 'hotels/show', status: :unprocessable_entity
         end
@@ -25,6 +26,6 @@ class BookingsController < ApplicationController
     private
 
     def booking_params
-        params.require(:booking).permit(:start_date, :end_date, :status)
+        params.require(:booking).permit(:start_date, :end_date, :status, :occupancy)
       end
 end

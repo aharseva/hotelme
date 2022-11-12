@@ -17,16 +17,15 @@
   <div class="row index-page">
     <div class="col-md-7">
       <% @hotels.each do |hotel| %>
-
         <div class="row">
           <div class="card-hotel col-12">
             <div class="d-flex align-items-center">
             <div class="row hotel-cards">
                 <div class="hotel-image col-4">
-                  <%  if hotel.photos.attached?%>
-                    <%= cl_image_tag hotel.photos.first.key, width: 400, height: 260, crop: :fill %>
-                  <% else %>
-                     <%=  image_tag('hotel_profile.jpg')%>
+                  <%  if hotel.photos.attached?%> 
+                   <%= cl_image_tag hotel.photos.first.key, width: 400, height: 260, crop: :fill %>
+                   <% else %>
+                     <%=  image_tag('hotel_profile.jpg') %>
                   <% end %>
                 </div>
                 <div class="hotel-attributes col-4">
