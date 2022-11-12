@@ -36,18 +36,25 @@
                 </div>
                 <div class="hotel-attributes col-4">
                   <h5 class="card-title"><%= hotel.name %></h5>
-                    <% if hotel.rating %>
-                      <% hotel.rating.times do %>
-                        <i class="fa fa-star rating-color"></i>
-                      <% end %>
-                      <span class="hotel-rating-text"> Hotel </span>
-                    <% else  %>
-                      <span class="hotel-rating-text"> No Rating </span>
+                    <% if hotel.occupancy %>
+                        <% hotel.occupancy.times do %>
+                          <i class="fa-solid fa-person"></i>
+                        <% end %>
                     <% end %>
+
                   <p class="card-text"><%= hotel.address%></p>
                 </div>
-                <div class="hotel-booking col-4 btn btn-secondary">
-                  Book now
+                <div class="hotel-booking col-4">
+                  <% if hotel.rating %>
+                      <div class="d-flex justify-content-start">
+                        <% hotel.rating.times do %>
+                          <i class="fa fa-star rating-color"></i>
+                        <% end %>
+                      </div>
+                    <% else  %>
+                      <span class="hotel-rating-text"> No Rating </span>
+                  <% end %>
+                  <p class="btn btn-flat"> Book now </p>
                 </div>
               </div>
             </div>
@@ -56,8 +63,8 @@
         </div>
        <% end %>
     </div>
-    <div class="col-md-5">
-    <div style="width: 100%; height: 100%;"
+    <div class="col-md-5 map-index">
+    <div style="width: 100%; height: 500px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

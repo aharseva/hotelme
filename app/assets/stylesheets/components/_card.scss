@@ -82,6 +82,7 @@
 
 .hotel-cards .hotel-attributes{
   padding: 16px;
+  height: 100%;
 }
 
 .rating-color {
@@ -95,8 +96,27 @@
 .hotel-rating-text {
   font-size: 12px;
   font-weight: lighter;
+
 }
 
 .index-page {
-  padding: 20px 50px;
+  padding: 30px 0px;
+}
+
+.map-index {
+  position: sticky;
+  top: 0;
+}
+
+.hotel-booking {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  justify-content: space-between;
+}
+
+.mapboxgl-map {
+  position: sticky !important;
+  top: 0px !important;
 }
