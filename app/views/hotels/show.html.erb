@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
       <div class="d-flex justify-content-center">
         <div class="card-photo">
-          <% @hotel.photos.each do |photo| %>
+          <% @hotel.photos.each do |photo| %> 
             <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
           <% end %>
       </div>
