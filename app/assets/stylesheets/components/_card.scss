@@ -1,3 +1,12 @@
+.card-hotel-name * {
+  text-decoration: none;
+}
+
+.test a {
+  text-decoration: none;
+  color: rgb(0, 0, 0)
+}
+
 .card-trip {
   overflow: hidden;
   background: white;
@@ -21,7 +30,6 @@
   opacity: .7;
   margin: 0;
 }
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -47,7 +55,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 4px 0;
   width: 900px;
 }
@@ -74,6 +82,7 @@
 
 .hotel-cards .hotel-attributes{
   padding: 16px;
+  height: 100%;
 }
 
 .rating-color {
@@ -87,4 +96,27 @@
 .hotel-rating-text {
   font-size: 12px;
   font-weight: lighter;
+
+}
+
+.index-page {
+  padding: 30px 0px;
+}
+
+.map-index {
+  position: sticky;
+  top: 0;
+}
+
+.hotel-booking {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  justify-content: space-between;
+}
+
+.mapboxgl-map {
+  position: sticky !important;
+  top: 0px !important;
 }

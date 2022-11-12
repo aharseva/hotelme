@@ -15,7 +15,7 @@ puts "Creating 10 Hotels"
 10.times do |i|
   Hotel.create!(
     name: Faker::Company.name,
-    address: Faker::Address.city,
+    address: Faker::Address.full_address,
     price: rand(50...300),
     rating: rand(1..5),
     occupancy: rand(1..8),

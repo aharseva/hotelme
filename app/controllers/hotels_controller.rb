@@ -1,7 +1,17 @@
 class HotelsController < ApplicationController
 
   def index
-    @hotels = Hotel.all
+    if params[:query].present?
+      @hotels = Hotel.search_index(params[:query])
+    else
+      @hotels = Hotel.all
+    end
+    @markers = @hotels.geocoded.map do |hotel|
+      {
+        lat: hotel.latitude,
+        lng: hotel.longitude
+      }
+    end
   end
 
   def show
@@ -27,19 +37,19 @@ class HotelsController < ApplicationController
   def edit
     @hotel = Hotel.find(params[:id])
   end
-  
+
   def update
     @hotel = Hotel.find(params[:id])
     @hotel.update(hotel_params)
     redirect_to hotel_path(@hotel)
   end
-  
+
   def destroy
     @hotel = Hotel.find(params[:id])
     @hotel.destroy
     redirect_to hotels_path, status: :see_other
   end
-  
+
   private
 
   def hotel_params

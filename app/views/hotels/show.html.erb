@@ -1,107 +1,85 @@
-
 <div class="container py-4" >
   <i class="fa-solid fa-arrow-left">
     <h5> <%= link_to "Home-page", hotels_path %> </h5>
   </i>
   <h1> <strong> <%= @hotel.name %> </strong> </h1>
   <h4> Rating :
-     <%= @hotel.rating %>/5 <i class="fa-solid fa-star"></i>
+     <%= @hotel.rating %>
+     <% @hotel.rating.times do %>
+     <i class="fa-solid fa-star"></i>
+     <% end %>
   </h4>
   <div class="container-img">
     <div class="row justify-content-center">
       <div class="d-flex justify-content-center">
         <div class="card-photo">
-        <% @hotel.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
-        <% end %>
+          <% @hotel.photos.each do |photo| %> 
+            <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
+          <% end %>
       </div>
-    </div>
+     </div>
+   </div>
   </div>
 
 
- <h2><strong> £ <%= @hotel.price %> </strong> night </h2>  
- <div class="container-i" style="display: -webkit-inline-box"> 
+ <h2><strong> £ <%= @hotel.price %> </strong> night </h2>
+ <div class="container-i" style="display: -webkit-inline-box">
    <div class="cards-icon">
      <div class="card-icon md-5">
         <h6> Beds for </h6>
-          <%= @hotel.occupancy %> 
-          <%# <% @hotel.occupancy.times do %>  
-            <i class="fa-solid fa-person"></i>
-          <%# <% end  %>  
+        <%= @hotel.occupancy %>
+        <i class="fa-solid fa-person"></i>
       </div>
       <div class="card-icon">
        <h5>Location</h5>
        <i class="fa-solid fa-location-dot"> </i> <%= @hotel.address %>
      </div>
+     </div>
    </div>
-        
+
    <div class="form col-4">
       <div class="row">
         <h3> Reserve </h3>
         <%= simple_form_for [@hotel, @booking] do |f| %>
-          <%= f.input :start_date, as: :date %>
-          <%= f.input :end_date, as: :date %>
-          <%= f.input :status %>
+          <%= f.input :start_date, as: :date, html5:true %>
+          <%= f.input :end_date, as: :date, html5:true %>
+          <%# <%= f.association :hotel %> 
+         <%= f.input :occupancy, collection: 1..@hotel.occupancy, label: "Guests" %>
           <%= f.submit class: "btn btn-flat" %>
         <% end %>
       </div>
     </div>
- </div>
-     
 
-  <div class="container" style="margin-top: -20%">
-    <hr style="width: 60%">  
-    <h3> What this place offer </h3>
-    <div class="icons">
-        <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi 
-        <i class="fa-solid fa-hot-tub-person"></i> Hot tube 
 
- <h2><strong> £ <%= @hotel.price %> </strong> night </h2>
- <div class="container-i">
-   <div class="column-icon">
-      <div class="text-align-left" style="margin: 3%">
-        <i class="fa-solid fa-people-group"></i> <%= @hotel.occupancy %>
-        <i class="fa-solid fa-location-dot"> </i> <%= @hotel.address %>
-        <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi
-        <i class="fa-solid fa-hot-tub-person"></i> Hot tube
-        <i class="fa-regular fa-calendar-days"></i> Free cancellation
-        <i class="fa-solid fa-utensils"></i> Restaurant
-        <i class="fa-solid fa-car"></i> Free-parking
-        <i class="fa-solid fa-umbrella-beach"></i> Few meter from the beach
+
+    <div class="container" style="margin-top: -30%">
+      <hr style="width: 60%">
+      <h3> What this place offer </h3>
+      <div class="icons">
+          <i class="fa-sharp fa-solid fa-wifi"></i> Wi-fi
+          <i class="fa-solid fa-hot-tub-person"></i> Hot tube
+          <i class="fa-regular fa-calendar-days"></i> Free cancellation
+          <i class="fa-solid fa-utensils"></i> Restaurant
+          <i class="fa-solid fa-car"></i> Free-parking
+          <i class="fa-solid fa-umbrella-beach"></i> Few meter from the beach
+      </div>
+   </div>
+    <hr style="margin-top: -10%">
+    <h3> About <%= @hotel.name %> </h3>
+    <hr>
+   <div class="text-center">
+      <p> <%= @hotel.description %> </p>
+      <hr>
     </div>
-   </div>  
-   <hr style="margin-top: -10%">
-   <div calss="column-img">
-     <h4> Hosted by: </h4>
-     <div class="rounded-circle">
-       <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342992/hotelme/hotel-logo_ptkmpe.png") %> 
-     </div>    
-   </div>
-  </div>
-  <h3> About <%= @hotel.name %> </h3>
-  <hr> 
- <div class="text-center">
-    <p> <%= @hotel.description %> </p>
-    <hr> 
-
-
-   <div calss="column-img">
-     <h4> Hosted by: </h4>
-     <div class="avatar">
-       <%= cl_image_tag("https://res.cloudinary.com/dzaii7z6h/image/upload/v1667342992/hotelme/hotel-logo_ptkmpe.png") %>
-     </div>
-   </div>
-  </div>
-
-  <div class="text-center">
-   <button type="button" class="btn btn-primary"> Book now! </button>
-
-    <hr>
-    <p> <%= @hotel.description %> </p>
-    <hr>
-
-    <h4> Rating :
-      <%= @hotel.rating %>/5 <i class="fa-solid fa-star"></i>
-    </h4>
-  </div>
+    <% if @hotel.geocoded? %>
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoiYWhzaG9wOTAiLCJhIjoiY2w4ZGNlNXVkMHF0bjN1cGg4MHUzMDZycyJ9.CtL1ncTIa0PkMfjgFBKjMg'] %>">
+    </div>
+    <% end  %>
+    <div><%= link_to "Delete",
+  hotel_path(@hotel),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></div>
 </div>
