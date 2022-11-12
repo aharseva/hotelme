@@ -8,8 +8,7 @@
       </div>
       <div class="panel-body">
 
-        <% @hotels.each do |hotel| %>
-          <% hotel.bookings.each do |booking| %>
+          <% @bookings.each do |booking| %>
             <div class="row">
               <div class="col-md-8">
               <div class="details">
@@ -25,13 +24,13 @@
               <div class="col-md-8">  
               <% count = (booking.end_date.mjd - booking.start_date.mjd) %>
                 <h6> <strong> Total cost for <%= count %> nights </strong> <h6>  
-             <h6> £ <%=  count * hotel.price %> </h6>
+             <h6> £ <%=  count * booking.hotel.price %> </h6>
 
               <div class="row">
               <div class="col-md-8"> 
 
               <h6> <strong> Hosted by </strong>  </h6>
-              <%= hotel.name %>
+              <%= booking.hotel.name %>
     
               </div>
                 <%= link_to hotel_path(booking.hotel) do %>
@@ -47,7 +46,6 @@
             </div>
             <hr />
           <% end %>
-        <% end %>
           </div>
       </div>
     </div>
