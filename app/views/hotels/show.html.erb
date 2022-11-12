@@ -1,6 +1,6 @@
 <div class="container py-4" >
   <i class="fa-solid fa-arrow-left">
-    <h5> <%= link_to "Home-page", hotels_path %> </h5>
+    <h5> <%= link_to "Back", hotels_path %> </h5>
   </i>
   <h1> <strong> <%= @hotel.name %> </strong> </h1>
   <h4> Rating :
@@ -40,7 +40,7 @@
    <div class="form col-4">
       <div class="row">
         <h3> Reserve </h3>
-        <%= simple_form_for [@hotel, @booking] do |f| %>
+        <%= simple_form_for([@hotel, @booking]) do |f| %>
           <%= f.input :start_date, as: :date, html5:true %>
           <%= f.input :end_date, as: :date, html5:true %>
           <%# <%= f.association :hotel %> 
@@ -75,7 +75,7 @@
     <div style="width: 100%; height: 600px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY=pk.eyJ1IjoiYWhzaG9wOTAiLCJhIjoiY2w4ZGNlNXVkMHF0bjN1cGg4MHUzMDZycyJ9.CtL1ncTIa0PkMfjgFBKjMg'] %>">
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <% end  %>
     <div><%= link_to "Delete",
