@@ -5,13 +5,18 @@ class BookingsController < ApplicationController
         @hotels = Hotel.where(user_id: current_user)
     end 
 
+    def show
+      @booking = Booking.find(params[:id])
+  
+    end
+
     def create
         @booking = Booking.new(booking_params)
         @booking.hotel = Hotel.find(params[:hotel_id])
         @booking.user = current_user
         @booking.save!
         if @booking.save
-          redirect_to hotel_bookings_path(@booking.hotel)
+          redirect_to booking_path(@booking)
         else
           render 'hotels/show', status: :unprocessable_entity
         end
