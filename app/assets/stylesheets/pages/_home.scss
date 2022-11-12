@@ -20,13 +20,13 @@
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 42px;
   font-weight: bold;
   text-align: center;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 30px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -53,11 +53,17 @@
   transition: opacity 0.3s ease;
 }
 
+.btn-ghost:hover {
+  color: #ffffff;
+
+
+  /*set the color you want here*/
+}
 
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,6 +74,10 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   opacity: 0.5px;
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .cards {
@@ -119,7 +129,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 50px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 }
@@ -138,15 +148,17 @@
   opacity: 1;
 }
 
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: black;
-// }
 
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
 
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
